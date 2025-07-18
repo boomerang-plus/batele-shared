@@ -17,6 +17,7 @@ export class JwksModule {
           provide: JWKS_MODULE_OPTIONS,
           useValue: options,
         },
+        JwksService,
       ],
     };
   }
