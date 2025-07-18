@@ -1,14 +1,16 @@
 {
   "name": "@batele/shared",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Batele shared module",
   "author": "pipisasa",
   "private": true,
   "license": "UNLICENSED",
-  "main": "src/index.js",
-  "types": "src/index.d.ts",
+  "main": "src/index.ts",
   "exports": {
-    "./*": "./src/*"
+    ".": "./src/index.ts",
+    "./common": "./src/common/index.ts",
+    "./jwks": "./src/jwks/index.ts",
+    "./result": "./src/result/index.ts"
   },
   "scripts": {
     "build": "nest build",
