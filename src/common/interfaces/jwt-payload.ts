@@ -1,6 +1,6 @@
 import { JwtType } from '../constants/jwt-type.enum';
 
-export interface JwtPayloadBaseSchema {
+export interface JwtPayloadBase {
   iss?: string;
   sub?: string;
   aud?: string[];
@@ -39,9 +39,9 @@ export interface JwtAdminInput {
 
 export type JwtPayloadInput = JwtUserInput | JwtMemberInput | JwtAdminInput;
 
-export type JwtUser = JwtPayloadBaseSchema & JwtUserInput & JwtWithType;
+export type JwtUser = JwtPayloadBase & JwtUserInput & JwtWithType;
 
-export type JwtMember = JwtPayloadBaseSchema & JwtMemberInput & JwtWithType;
-export type JwtAdmin = JwtPayloadBaseSchema & JwtAdminInput & JwtWithType;
+export type JwtMember = JwtPayloadBase & JwtMemberInput & JwtWithType;
+export type JwtAdmin = JwtPayloadBase & JwtAdminInput & JwtWithType;
 
 export type JwtPayload = JwtUser | JwtMember | JwtAdmin;
