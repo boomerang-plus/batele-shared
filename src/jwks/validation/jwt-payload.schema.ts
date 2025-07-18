@@ -1,4 +1,4 @@
-import { JwtType } from 'src/common/constants';
+import { JwtType } from '../../common/constants';
 import { z } from 'zod/v3';
 
 export const JwtPayloadBaseSchema = z.object({
