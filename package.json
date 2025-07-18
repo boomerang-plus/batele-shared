@@ -1,17 +1,21 @@
 {
   "name": "@batele/shared",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "description": "Batele shared module",
   "author": "pipisasa",
-  "private": true,
+  "private": false,
   "license": "UNLICENSED",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.js",
   "exports": {
-    ".": "./src/index.ts",
-    "./common": "./src/common/index.ts",
-    "./jwks": "./src/jwks/index.ts",
-    "./result": "./src/result/index.ts"
+    ".": "./dist/index.js",
+    "./common": "./dist/common/index.js",
+    "./jwks": "./dist/jwks/index.js",
+    "./result": "./dist/result/index.ts"
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
