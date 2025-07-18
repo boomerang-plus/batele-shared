@@ -1,0 +1,12 @@
+{
+  "$schema": "https://jsr.io/schema/config-file.v1.json",
+  "name": "@batele/shared",
+  "exports": {
+    ".": "./src/index.ts",
+    "./common": "./src/common/index.ts",
+    "./jwks": "./src/jwks/index.ts",
+    "./result": "./src/result/index.ts"
+  },
+  "version": "0.2.2",
+  "license": "MIT"
+}

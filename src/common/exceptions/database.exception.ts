@@ -11,44 +11,44 @@ export class DatabaseException extends Error {
     this.message = message;
   }
 
-  static notFound(message: string) {
+  static notFound(message: string): DatabaseException {
     return new DatabaseException(DatabaseExceptionCode.NOT_FOUND, message);
   }
 
-  static duplicateEntry(message: string) {
+  static duplicateEntry(message: string): DatabaseException {
     return new DatabaseException(
       DatabaseExceptionCode.DUPLICATE_ENTRY,
       message,
     );
   }
 
-  static foreignKeyViolation(message: string) {
+  static foreignKeyViolation(message: string): DatabaseException {
     return new DatabaseException(
       DatabaseExceptionCode.FOREIGN_KEY_VIOLATION,
       message,
     );
   }
 
-  static validationError(message: string) {
+  static validationError(message: string): DatabaseException {
     return new DatabaseException(
       DatabaseExceptionCode.VALIDATION_ERROR,
       message,
     );
   }
 
-  static timeout(message: string) {
+  static timeout(message: string): DatabaseException {
     return new DatabaseException(DatabaseExceptionCode.TIMEOUT, message);
   }
 
-  static unauthorized(message: string) {
+  static unauthorized(message: string): DatabaseException {
     return new DatabaseException(DatabaseExceptionCode.UNAUTHORIZED, message);
   }
 
-  static forbidden(message: string) {
+  static forbidden(message: string): DatabaseException {
     return new DatabaseException(DatabaseExceptionCode.FORBIDDEN, message);
   }
 
-  static internalError(message: string) {
+  static internalError(message: string): DatabaseException {
     return new DatabaseException(DatabaseExceptionCode.INTERNAL_ERROR, message);
   }
 

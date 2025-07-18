@@ -1,6 +1,6 @@
 {
   "name": "@batele/shared",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Batele shared module",
   "author": "pipisasa",
   "private": true,
@@ -30,6 +30,7 @@
     "@nestjs/common": "^10.0.0",
     "@nestjs/core": "^10.0.0",
     "@nestjs/platform-express": "^10.0.0",
+    "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
     "jwks-rsa": "^3.2.0",
     "reflect-metadata": "^0.2.0",

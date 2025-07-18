@@ -4,7 +4,7 @@ export class BaseException extends Error {
   static badRequest(
     message: string = 'Bad request',
     metadata?: Record<string, any>,
-  ) {
+  ): BaseException {
     return new BaseException({
       message: message,
       codeName: 'BAD_REQUEST',
@@ -16,7 +16,7 @@ export class BaseException extends Error {
   static internalServerError(
     message: string = 'Internal Server Error',
     metadata?: Record<string, any>,
-  ) {
+  ): BaseException {
     return new BaseException({
       message: message,
       codeName: 'INTERNAL_SERVER_ERROR',
@@ -28,7 +28,7 @@ export class BaseException extends Error {
   static notFound(
     message: string = 'Not Found',
     metadata?: Record<string, any>,
-  ) {
+  ): BaseException {
     return new BaseException({
       message: message,
       codeName: 'NOT_FOUND',
@@ -40,7 +40,7 @@ export class BaseException extends Error {
   static tooManyRequests(
     message: string = 'Too Many Request',
     metadata?: Record<string, any>,
-  ) {
+  ): BaseException {
     return new BaseException({
       message: message,
       codeName: 'TOO_MANY_REQUESTS',
@@ -52,7 +52,7 @@ export class BaseException extends Error {
   static unauthorized(
     message: string = 'Unauthorized',
     metadata?: Record<string, any>,
-  ) {
+  ): BaseException {
     return new BaseException({
       message: message,
       codeName: 'UNAUTHORIZED',
@@ -61,7 +61,10 @@ export class BaseException extends Error {
       metadata: metadata,
     });
   }
-  static forbidden(message = 'forbidden', metadata?: Record<string, any>) {
+  static forbidden(
+    message = 'forbidden',
+    metadata?: Record<string, any>,
+  ): BaseException {
     return new BaseException({
       message: message,
       codeName: 'FORBIDDEN',
@@ -73,7 +76,7 @@ export class BaseException extends Error {
   static conflict(
     message: string = 'Conflict',
     metadata?: Record<string, any>,
-  ) {
+  ): BaseException {
     return new BaseException({
       message,
       codeName: 'CONFLICT',
@@ -85,7 +88,7 @@ export class BaseException extends Error {
   static requestTimeout(
     message: string = 'Request Timeout',
     metadata?: Record<string, any>,
-  ) {
+  ): BaseException {
     return new BaseException({
       message,
       codeName: 'REQUEST_TIMEOUT',
@@ -122,7 +125,7 @@ export class BaseException extends Error {
     this.metadata = metadata;
   }
 
-  toHttpException() {
+  toHttpException(): HttpException {
     return new HttpException(
       {
         isBaseException: true,

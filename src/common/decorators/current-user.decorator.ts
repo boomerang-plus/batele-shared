@@ -26,7 +26,9 @@ export const getUserFromExecutionContext = (
   }
 };
 
-export const CurrentUser = createParamDecorator(
+type CurrentUserDecorator = (data?: keyof JwtPayload) => ParameterDecorator;
+
+export const CurrentUser: CurrentUserDecorator = createParamDecorator(
   (data: keyof JwtPayload | undefined, context: ExecutionContext) => {
     try {
       const user = getUserFromExecutionContext(context);
