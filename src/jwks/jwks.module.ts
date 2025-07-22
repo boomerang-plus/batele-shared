@@ -1,24 +1,38 @@
-import { DynamicModule, Global, Module } from '@nestjs/common';
+import { DynamicModule } from '@nestjs/common';
 import { JwksService } from './jwks.service';
-import { JwksModuleOptions } from './jwks.interface';
-import { JWKS_MODULE_OPTIONS } from './jwks.constants';
+import { JwksModuleAsyncOptions, JwksModuleOptions } from './jwks.interface';
+import { JWKS_SERVICE_CONFIG } from './jwks.constants';
 
-@Global()
-@Module({
-  providers: [JwksService],
-  exports: [JwksService],
-})
 export class JwksModule {
   static forRoot(options: JwksModuleOptions): DynamicModule {
     return {
       module: JwksModule,
+      global: options.isGlobal,
       providers: [
         {
-          provide: JWKS_MODULE_OPTIONS,
-          useValue: options,
+          provide: JWKS_SERVICE_CONFIG,
+          useValue: options.config,
         },
         JwksService,
       ],
+    };
+  }
+
+  static forRootAsync(options: JwksModuleAsyncOptions): DynamicModule {
+    return {
+      module: JwksModule,
+      imports: options.imports,
+      providers: [
+        ...(options.imports || []),
+        {
+          provide: JWKS_SERVICE_CONFIG,
+          useFactory: options.useFactory,
+          inject: options.inject || [],
+        },
+        JwksService,
+      ],
+      global: options.isGlobal,
+      exports: [JwksService],
     };
   }
 }

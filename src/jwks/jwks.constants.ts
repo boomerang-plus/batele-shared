@@ -1,1 +1,1 @@
-export const JWKS_MODULE_OPTIONS = Symbol.for('JWKS_MODULE_OPTIONS');
+export const JWKS_SERVICE_CONFIG = Symbol.for('JWKS_SERVICE_CONFIG');

@@ -4,8 +4,8 @@ import jwksClient from 'jwks-rsa';
 import { JwtPayload } from '../common/interfaces';
 import { JwtPayloadSchema } from './validation/jwt-payload.schema';
 import { AsyncResult, Result, Resulter } from '../result';
-import { JWKS_MODULE_OPTIONS } from './jwks.constants';
-import { JwksModuleOptions } from './jwks.interface';
+import { JWKS_SERVICE_CONFIG } from './jwks.constants';
+import { JwksServiceConfig } from './jwks.interface';
 
 @Injectable()
 export class JwksService {
@@ -13,8 +13,8 @@ export class JwksService {
   private _client?: jwksClient.JwksClient;
 
   constructor(
-    @Inject(JWKS_MODULE_OPTIONS)
-    private readonly options: JwksModuleOptions,
+    @Inject(JWKS_SERVICE_CONFIG)
+    private readonly options: JwksServiceConfig,
   ) {}
 
   get client(): jwksClient.JwksClient {
