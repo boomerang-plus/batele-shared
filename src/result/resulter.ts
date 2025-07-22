@@ -1,4 +1,3 @@
-import { Res } from '@nestjs/common';
 import { AsyncResult, ErrorResult, SuccessResult } from './result.types';
 
 export class Resulter {
@@ -45,41 +44,3 @@ export class Resulter {
     };
   }
 }
-
-(async () => {
-  const a = await fetch('').then(
-    (response) => Resulter.async(response.json()),
-    (error) => Resulter.err<unknown>(error),
-  );
-
-  console.log(a);
-})();
-// class AsResult<T, E = unknown> implements Promise<T> {
-//   then<TResult1 = T, TResult2 = never>(
-//     onfulfilled?:
-//       | ((value: T) => TResult1 | PromiseLike<TResult1>)
-//       | null
-//       | undefined,
-//     onrejected?:
-//       | ((reason: E) => TResult2 | PromiseLike<TResult2>)
-//       | null
-//       | undefined,
-//   ): Promise<TResult1 | TResult2> {
-//     throw new Error('Method not implemented.');
-//   }
-
-//   catch<TResult = never>(
-//     onrejected?:
-//       | ((reason: any) => TResult | PromiseLike<TResult>)
-//       | null
-//       | undefined,
-//   ): Promise<T | TResult> {
-//     throw new Error('Method not implemented.');
-//   }
-
-//   finally(onfinally?: (() => void) | null | undefined): Promise<T> {
-//     throw new Error('Method not implemented.');
-//   }
-// }
-
-const a = new Result2(true, 'hello', 'error');
