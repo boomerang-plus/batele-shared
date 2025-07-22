@@ -7,6 +7,7 @@ export interface JwksServiceConfig {
   rateLimit?: boolean;
   jwksRequestsPerMinute?: number;
   verifyOptions?: VerifyOptions;
+  appSecret: string;
 }
 
 export interface JwksModuleOptions {
